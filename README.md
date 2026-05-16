@@ -7,7 +7,7 @@ A DTMF (Dual-Tone Multi-Frequency) decoder circuit using the M8870 DTMF Receiver
 detects and decodes phone keypad tones. The decoded symbol (0-9, asterisk *, hash #) is displayed in binary format using 
 4 LEDs arranged in 8-4-2-1 weighted order. When any key is pressed on a phone, the M8870 identifies 
 the tone and outputs the binary representation, which is then displayed on the LED indicators.
-
+ 
 ## How It Works
 1. Phone keypad tone (DTMF signal) is input through signal conditioning stage
 2. M8870 DTMF Receiver IC analyzes the incoming dual-tone signal
