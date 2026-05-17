@@ -67,6 +67,7 @@ the tone and outputs the binary representation, which is then displayed on the L
 ## Hardware Implementation 
 ![DTMF Hardware](dtmf_hardware.jpeg)
 Real PCB circuit implementation showing M8870 decoder IC, signal conditioning stage, steering circuit, current limiting resistors, and 4-LED binary display. Successfully decodes all standard phone keypad tones.
+Note: Additional bypass capacitors and biasing resistors added during implementation for stability and noise reduction.
 
 ## Team Project
 Group project completed as part of Integrated Circuits Lab.
