@@ -9,7 +9,7 @@ detects and decodes phone keypad tones. The decoded symbol (0-9, asterisk *, has
 the tone and outputs the binary representation, which is then displayed on the LED indicators.
  
 ## How It Works
-![DTMF CIRCUIT](dtmf_ckt.jpeg)
+![DTMF CIRCUIT](dtmf_ckt.pdf)
 1. Phone keypad tone (DTMF signal) is input through signal conditioning stage
 2. M8870 DTMF Receiver IC analyzes the incoming dual-tone signal
 3. Steering circuit uses 330KΩ, 100KΩ resistors and 1N4148 diode to filter false triggers and validate the tone before output
