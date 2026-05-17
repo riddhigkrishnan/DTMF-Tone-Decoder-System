@@ -58,15 +58,14 @@ the tone and outputs the binary representation, which is then displayed on the L
 
 ## Applications
 - Automatic phone tone recognition and symbol decoding (0-9, *, #)
-- Telephone-based remote control systems
-- Tone-based remote access systems
-- DTMF signal monitoring and analysis
 - Phone menu navigation systems
-- Telephone keypad decoder for embedded systems
+- Telephone-based remote control systems
 
 ## Hardware Implementation 
 ![DTMF Hardware](dtmf_hardware.jpeg)
-Real PCB circuit implementation showing M8870 decoder IC, signal conditioning stage, steering circuit, current limiting resistors, and 4-LED binary display. Successfully decodes all standard phone keypad tones.
+
+Real PCB circuit implementation showing M8870 decoder IC, signal conditioning stage, steering circuit, current limiting resistors, and 4-LED binary display.
+Successfully decodes all standard phone keypad tones.
 Note: Additional bypass capacitors and biasing resistors added during implementation for stability and noise reduction.
 
 ## Team Project
