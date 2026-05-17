@@ -11,10 +11,11 @@ the tone and outputs the binary representation, which is then displayed on the L
 ## How It Works
 1. Phone keypad tone (DTMF signal) is input through signal conditioning stage
 2. M8870 DTMF Receiver IC analyzes the incoming dual-tone signal
-3. Decoder identifies which tone was pressed (0-9, *,#)
-4. Binary output generated on pins 11-14 (8-4-2-1 bit positions)
-5. Output signals pass through driver resistors and protection diode
-6. 4 LEDs light up showing the binary representation of the detected digit
+3. Steering circuit uses 330KΩ, 100KΩ resistors and 1N4148 diode to filter false triggers and validate the tone before output
+4. Decoder identifies which tone was pressed (0-9, *,#)
+5. Binary output generated on pins 11-14 (8-4-2-1 bit positions)
+6. Output signals pass through current limiting resistors (4.7KΩ) to drive the LEDs
+7. 4 LEDs light up showing the binary representation of the detected digit
 
 ## LED Binary Display (8-4-2-1 Encoding)
 | Symbol | Pin 14 (8) | Pin 13 (4) | Pin 12 (2) | Pin 11 (1) | Binary |
@@ -32,17 +33,16 @@ the tone and outputs the binary representation, which is then displayed on the L
 | *      | 1         | 0         | 1         | 0         | 1010   |
 | #      | 1         | 0         | 1         | 1         | 1011   |
 
-**Example**: Press **9** on phone → M8870 decodes → Pins output 1001 → LEDs light: [ON, OFF, OFF, ON] ✅
+**Example**: Press **9** on phone → M8870 decodes → Pins output 1001 → LEDs light: [ON, OFF, OFF, ON] 
 
 ## Key Components 
 ![DTMF PCB](dtmf_pcb.jpeg)
 - **M8870** - DTMF Receiver/Decoder IC (core detection and decoding)
 - **0.1µF Capacitor (104)** - AC coupling and signal conditioning at input
 - **4 LEDs** - Red/Green arranged in 8-4-2-1 binary weighted order
-- **2N4148 Diode** - Protection diode in the output driver stage
-- **4.7kΩ Resistors** - LED current limiting resistors (4 resistors, one across each LED)
-- **3.3kΩ Resistor** -  Pull-up or biasing resistor in the output driver circuit
-- **100kΩ Resistor** - Input impedance matching
+- **1N4148 Diode, 330kΩ and 100kΩ** - filter false triggers and validate the tone before output
+- **4.7kΩ Resistors** - LED current limiting resistors (4 resistors, one in series with each LED)
+- **100kΩ Resistor(Input)** - Input impedance matching
 - **3.579 MHz Crystal** - Timing reference for M8870 decoder
 - **Power Supply** - +5V DC
 
@@ -58,16 +58,14 @@ the tone and outputs the binary representation, which is then displayed on the L
 ## Applications
 - Automatic phone tone recognition and symbol decoding (0-9, *, #)
 - Telephone-based remote control systems
-- Voice-controlled access systems
+- Tone-based remote access systems
 - DTMF signal monitoring and analysis
 - Phone menu navigation systems
 - Telephone keypad decoder for embedded systems
 
 ## Hardware Implementation 
 ![DTMF Hardware](dtmf_hardware.jpeg)
-Real PCB circuit implementation showing M8870 decoder IC, signal conditioning stage, 
-protection diode, output driver resistors, and 4-LED binary display. Successfully 
-decodes all standard phone keypad tones.
+Real PCB circuit implementation showing M8870 decoder IC, signal conditioning stage, steering circuit, current limiting resistors, and 4-LED binary display. Successfully decodes all standard phone keypad tones.
 
 ## Team Project
 Group project completed as part of Integrated Circuits Lab.
